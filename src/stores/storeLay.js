@@ -1,5 +1,4 @@
 import axios from 'axios'
-
 import { ref, computed, onMounted, reactive, watch } from 'vue'
 import { defineStore } from 'pinia'
 
@@ -11,6 +10,7 @@ export const useLayStore = defineStore('lay', () => {
     sortBy: '',
     searchQuery: ''
   })
+  const favorites = ref([])
 
   const openDrawer = () => {
     showDrawer.value = true
@@ -64,6 +64,15 @@ export const useLayStore = defineStore('lay', () => {
     filters.searchQuery = event.target.value
   }
 
+  // const fetchFavorites async () => {
+  //   try {
+  //     const { data } = await axios.get('https://3cafada1a49a5862.mokky.dev/favorites')
+  //     items.value = data
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }
+
   return {
     showDrawer,
     openDrawer,
@@ -72,6 +81,7 @@ export const useLayStore = defineStore('lay', () => {
     items,
     getItems,
     filters,
-    onChangeSelect
+    onChangeSelect,
+    onChangeSearchInput
   }
 })

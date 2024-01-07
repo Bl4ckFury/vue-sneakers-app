@@ -1,5 +1,4 @@
 <script setup>
-import IconLikeItem from '../icons/IconLikeItem.vue'
 import IconAddItemCart from '../icons/IconAddItemCart.vue'
 import IconNotLikeItem from '../icons/IconNotLikeItem.vue'
 import { useLayStore } from '../../stores/storeLay'
@@ -12,8 +11,10 @@ defineProps({
 </script>
 
 <template>
-  <li class="flex flex-col border border-l-slate-300 rounded-3xl p-6 m-4">
-    <button>
+  <li
+    class="flex flex-col border border-l-slate-300 rounded-3xl p-6 m-4 hover:-translate-y-2 hover:shadow-xl transition-all"
+  >
+    <button class="mb-2">
       <IconNotLikeItem />
     </button>
     <img :src="item.image" :alt="item.title" class="w-44" />
